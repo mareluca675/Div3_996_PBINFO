@@ -1,0 +1,30 @@
+#include <fstream>
+
+std::ifstream fin("div3.in");
+std::ofstream fout("div3.out");
+
+int suma_cifre(int number){
+    int sum = 0;
+    
+    while(number){
+        sum += number % 10;
+        number /= 10;
+    }
+    
+    return sum;
+}
+
+int main()
+{
+    int n;
+    fin >> n;
+    
+    int number;
+    while(fin >> number){
+        if(suma_cifre(number) % 3 == 0){
+            fout << number << ' ';
+        }
+    }
+
+    return 0;
+}
